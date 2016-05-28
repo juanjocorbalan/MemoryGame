@@ -9,21 +9,15 @@
 import Foundation
 import UIKit
 
-extension CollectionType {
+extension CollectionType where Index == Int {
     func shuffle() -> [Generator.Element] {
         var list = Array(self)
-        list.shuffleInPlace()
-        return list
-    }
-}
-
-extension MutableCollectionType where Index == Int {
-    mutating func shuffleInPlace() {
-        for i in 0..<count - 1 {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+        for i in 0..<list.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
             guard i != j else { continue }
-            swap(&self[i], &self[j])
+            swap(&list[i], &list[j])
         }
+        return list
     }
 }
 

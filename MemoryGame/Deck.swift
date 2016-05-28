@@ -111,8 +111,7 @@ extension Deck {
     }
     
     mutating func suffle() {
-        let firstCardsInPair = Deck.fullDeck().shuffle()[0..<(difficulty.gameSize().0 * difficulty.gameSize().1)/2]
-        let secondCardsInPair = firstCardsInPair
-        cards = Array(firstCardsInPair) + Array(secondCardsInPair)
+        let partialDeck = Deck.fullDeck().shuffle()[0..<(difficulty.gameSize().0 * difficulty.gameSize().1)/2]
+        cards = Array(partialDeck + partialDeck).shuffle()
     }
 }
