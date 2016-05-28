@@ -11,8 +11,7 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
     
     private struct Costants {
-        static let duration : Double = 0.5
-        static let cornerRadius : CGFloat = 8.0
+        static let durationDuration : Double = 0.5
     }
     
     private let imageView: UIImageView!
@@ -37,9 +36,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.backImageName = backImageName
         self.alpha = 0
         imageView.image = UIImage(named: self.backImageName)
-        imageView.layer.cornerRadius = Costants.cornerRadius
-        imageView.layer.masksToBounds = true
-        UIView.animateWithDuration(Costants.duration,
+        UIView.animateWithDuration(Costants.durationDuration,
                                    animations: {
                                     self.alpha = 1
             },
@@ -48,7 +45,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func turnCard() {
         UIView.transitionWithView(contentView,
-                                  duration:Costants.duration,
+                                  duration:Costants.durationDuration,
                                   options:.TransitionFlipFromLeft,
                                   animations: {
                                     self.imageView.image = UIImage(named: self.isFacedUp ? self.backImageName : self.cardImageName)
@@ -58,7 +55,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func removeCard() {
-        UIView.animateWithDuration(Costants.duration,
+        UIView.animateWithDuration(Costants.durationDuration,
                                    animations: {
                                     self.alpha = 0
             },

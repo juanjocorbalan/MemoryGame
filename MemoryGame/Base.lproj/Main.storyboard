@@ -39,8 +39,10 @@
                                                     <constraint firstAttribute="height" constant="45" id="mc7-Dy-XWw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <size key="titleShadowOffset" width="2" height="2"/>
                                                 <state key="normal" title="Easy">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oK5-qv-tJb"/>
@@ -54,8 +56,10 @@
                                                     <constraint firstAttribute="width" constant="120" id="mkA-aa-8Vr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <size key="titleShadowOffset" width="2" height="2"/>
                                                 <state key="normal" title="Normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3h-d3-IBv"/>
@@ -69,8 +73,10 @@
                                                     <constraint firstAttribute="width" constant="120" id="s3G-1d-Gbt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <size key="titleShadowOffset" width="2" height="2"/>
                                                 <state key="normal" title="High">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zia-bm-8Yk"/>
@@ -81,7 +87,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.26050398036098105" green="0.69905849358974359" blue="0.45693634275370043" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jAH-gR-3bE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Txy-L2-EiR"/>
                             <constraint firstItem="jAH-gR-3bE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hUQ-WF-yWe"/>
@@ -114,15 +120,17 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTU-j1-15Z">
-                                            <rect key="frame" x="8" y="8" width="120" height="45"/>
+                                            <rect key="frame" x="8" y="8" width="45" height="45"/>
                                             <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="X7X-x3-Uji"/>
+                                                <constraint firstAttribute="width" constant="45" id="X7X-x3-Uji"/>
                                                 <constraint firstAttribute="height" constant="45" id="ZOJ-6o-Hk6"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                                            <state key="normal" title="End game">
+                                            <size key="titleShadowOffset" width="2" height="2"/>
+                                            <state key="normal" title="✖︎">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="endGame:" destination="Ued-ww-eLv" eventType="touchUpInside" id="RT8-U5-ytz"/>
@@ -171,15 +179,17 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBv-ZS-bX6" userLabel="New game">
-                                            <rect key="frame" x="136" y="8" width="120" height="45"/>
+                                            <rect key="frame" x="61" y="8" width="120" height="45"/>
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="9wc-7V-XE6"/>
                                                 <constraint firstAttribute="height" constant="45" id="rwp-5i-yRC"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                            <size key="titleShadowOffset" width="2" height="2"/>
                                             <state key="normal" title="New game">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="newGame:" destination="Ued-ww-eLv" eventType="touchUpInside" id="Sdv-P0-UCC"/>
