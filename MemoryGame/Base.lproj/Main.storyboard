@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jAH-gR-3bE">
+                                <rect key="frame" x="80" y="224" width="440" height="152"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVq-w1-ek5">
+                                        <rect key="frame" x="45" y="0.0" width="350" height="67"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
+                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="1" height="2"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="VjN-HT-y3K">
+                                        <rect key="frame" x="0.0" y="107" width="440" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQY-EC-tcD">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="45"/>
+                                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="iXW-1E-xJU"/>
+                                                    <constraint firstAttribute="height" constant="45" id="mc7-Dy-XWw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <state key="normal" title="Easy">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oK5-qv-tJb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OZ-9z-wJ8">
+                                                <rect key="frame" x="160" y="0.0" width="120" height="45"/>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="gTk-9h-b7T"/>
+                                                    <constraint firstAttribute="width" constant="120" id="mkA-aa-8Vr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <state key="normal" title="Normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3h-d3-IBv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUI-pb-GP1">
+                                                <rect key="frame" x="320" y="0.0" width="120" height="45"/>
+                                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="fi6-Rv-azh"/>
+                                                    <constraint firstAttribute="width" constant="120" id="s3G-1d-Gbt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <state key="normal" title="High">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zia-bm-8Yk"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jAH-gR-3bE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Txy-L2-EiR"/>
+                            <constraint firstItem="jAH-gR-3bE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hUQ-WF-yWe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Ued-ww-eLv" kind="presentation" identifier="showGame" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="I30-kI-Y66"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269" y="356"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="7Nj-Il-gk1">
+            <objects>
+                <viewController id="Ued-ww-eLv" customClass="GameViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zMv-ww-Ldx"/>
+                        <viewControllerLayoutGuide type="bottom" id="iN7-Cj-Wbp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K7K-8w-Lda">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qy6-0K-bec">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="02S-tO-sp3">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTU-j1-15Z">
+                                            <rect key="frame" x="8" y="8" width="120" height="45"/>
+                                            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="X7X-x3-Uji"/>
+                                                <constraint firstAttribute="height" constant="45" id="ZOJ-6o-Hk6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                            <state key="normal" title="End game">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="endGame:" destination="Ued-ww-eLv" eventType="touchUpInside" id="RT8-U5-ytz"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Af2-fa-zMB">
+                                            <rect key="frame" x="472" y="8" width="120" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-8j-pmu">
+                                                    <rect key="frame" x="38" y="0.0" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.94549823860000004" green="1" blue="0.34192355229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCL-R5-Qhq">
+                                                    <rect key="frame" x="0.0" y="21" width="120" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="BMS-ZX-tmp"/>
+                                                        <constraint firstAttribute="height" constant="24" id="TUg-XA-UWE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KMK-FM-3pf">
+                                            <rect key="frame" x="344" y="8" width="120" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pairs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-0s-dzK">
+                                                    <rect key="frame" x="41" y="0.0" width="38" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.94549823860000004" green="1" blue="0.34192355229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpV-hk-zdC">
+                                                    <rect key="frame" x="0.0" y="21" width="120" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="TgQ-Xc-GRb"/>
+                                                        <constraint firstAttribute="width" constant="120" id="ehf-hp-0rW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBv-ZS-bX6" userLabel="New game">
+                                            <rect key="frame" x="136" y="8" width="120" height="45"/>
+                                            <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="9wc-7V-XE6"/>
+                                                <constraint firstAttribute="height" constant="45" id="rwp-5i-yRC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                            <state key="normal" title="New game">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="newGame:" destination="Ued-ww-eLv" eventType="touchUpInside" id="Sdv-P0-UCC"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Af2-fa-zMB" firstAttribute="leading" secondItem="KMK-FM-3pf" secondAttribute="trailing" constant="8" id="RGa-sL-r5a"/>
+                                        <constraint firstItem="OTU-j1-15Z" firstAttribute="top" secondItem="02S-tO-sp3" secondAttribute="top" constant="8" id="fkY-Jk-PI8"/>
+                                        <constraint firstItem="Af2-fa-zMB" firstAttribute="top" secondItem="02S-tO-sp3" secondAttribute="top" constant="8" id="jXd-Vn-7ad"/>
+                                        <constraint firstItem="OTU-j1-15Z" firstAttribute="leading" secondItem="02S-tO-sp3" secondAttribute="leading" constant="8" id="jaW-OG-xdi"/>
+                                        <constraint firstAttribute="trailing" secondItem="Af2-fa-zMB" secondAttribute="trailing" constant="8" id="kvK-94-tpl"/>
+                                        <constraint firstItem="qBv-ZS-bX6" firstAttribute="leading" secondItem="OTU-j1-15Z" secondAttribute="trailing" constant="8" id="m2P-Rp-iLG"/>
+                                        <constraint firstItem="KMK-FM-3pf" firstAttribute="centerY" secondItem="Af2-fa-zMB" secondAttribute="centerY" id="oAf-px-3iG"/>
+                                        <constraint firstItem="qBv-ZS-bX6" firstAttribute="centerY" secondItem="OTU-j1-15Z" secondAttribute="centerY" id="t78-Rm-UAx"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iN7-Cj-Wbp" firstAttribute="top" secondItem="qy6-0K-bec" secondAttribute="bottom" id="Ky1-L7-B0e"/>
+                            <constraint firstAttribute="trailing" secondItem="qy6-0K-bec" secondAttribute="trailing" id="LZ0-FH-kaG"/>
+                            <constraint firstItem="qy6-0K-bec" firstAttribute="top" secondItem="K7K-8w-Lda" secondAttribute="top" id="agq-D3-N8m"/>
+                            <constraint firstItem="qy6-0K-bec" firstAttribute="leading" secondItem="K7K-8w-Lda" secondAttribute="leading" id="eJj-7V-D2S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pairsLabel" destination="PpV-hk-zdC" id="VD5-EL-Q35"/>
+                        <outlet property="scoreLabel" destination="zCL-R5-Qhq" id="fjP-9k-Plz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCs-L2-Zva" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="356"/>
+        </scene>
+    </scenes>
+</document>
