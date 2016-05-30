@@ -1,5 +1,5 @@
 //
-//  Deck.swift
+//  Game.swift
 //  MemoryGame
 //
 //  Created by Juan Jose Corbalan on 27/5/16.
@@ -10,14 +10,6 @@ import Foundation
 
 enum Difficulty : String {
     case Easy, Normal, High
-    
-    func gameSize() -> (Int, Int) {
-        switch self {
-        case .Easy: return (3, 4)
-        case .Normal: return (4, 6)
-        case .High: return (4, 8)
-        }
-    }
 }
 
 enum Rank : Int, CustomStringConvertible {
@@ -64,20 +56,21 @@ func ==(card1 : Card, card2 : Card) -> Bool {
     return card1.rank == card2.rank && card1.suit == card2.suit
 }
 
-struct Deck {
+struct Game {
+    
     private var cards = [Card]()
     
     var difficulty : Difficulty = .Normal
     
-    var count : Int {
+    var cardsCount : Int {
         get {
             return cards.count
         }
     }
     
-    var pairs : Int {
+    var pairsCount : Int {
         get {
-            return count / 2
+            return cardsCount / 2
         }
     }
 
@@ -95,7 +88,7 @@ struct Deck {
     }
 }
 
-extension Deck {
+extension Game {
 
     static func fullDeck() -> [Card] {
         var cards = [Card]()
@@ -111,7 +104,16 @@ extension Deck {
     }
     
     mutating func suffle() {
-        let partialDeck = Deck.fullDeck().shuffle()[0..<(difficulty.gameSize().0 * difficulty.gameSize().1)/2]
+        let partialDeck = Game.fullDeck().shuffle()[0..<(gameSize().0 * gameSize().1)/2]
         cards = Array(partialDeck + partialDeck).shuffle()
+    }
+    
+    
+    func gameSize() -> (Int, Int) {
+        switch difficulty {
+        case .Easy: return (3, 4)
+        case .Normal: return (4, 6)
+        case .High: return (4, 8)
+        }
     }
 }

@@ -19,13 +19,11 @@ class MenuViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Storyboard.GameSegueIdenfifier,
-            let button = sender as? UIButton,
-            let vc = segue.destinationViewController as? GameViewController
-        {
-            let title = button.currentTitle!
-            let difficulty = Difficulty(rawValue:title) ?? .Normal
-            vc.deck = Deck(difficulty: difficulty)
+        if segue.identifier == Storyboard.GameSegueIdenfifier {
+            if let button = sender as? UIButton, vc = segue.destinationViewController as? GameViewController {
+                let difficulty = Difficulty(rawValue: button.currentTitle!) ?? .Normal
+                vc.game = Game(difficulty: difficulty)
+            }
         }
     }
 }
