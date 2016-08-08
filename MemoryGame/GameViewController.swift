@@ -32,9 +32,9 @@ class GameViewController: UIViewController {
         didSet {
             collectionView.dataSource = self
             collectionView.delegate = self
-            collectionView.scrollEnabled = false
-            collectionView.registerClass(CardCollectionViewCell.self, forCellWithReuseIdentifier: Costants.cellIdentifier)
-            collectionView.backgroundColor = UIColor.clearColor()
+            collectionView.isScrollEnabled = false
+            collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: Costants.cellIdentifier)
+            collectionView.backgroundColor = UIColor.clear
         }
     }
     
@@ -63,12 +63,12 @@ class GameViewController: UIViewController {
     
     //MARK: - Actions
     
-    @IBAction func newGame(sender: UIButton) {
+    @IBAction func newGame(_ sender: UIButton) {
         setup()
     }
     
-    @IBAction func endGame(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func endGame(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -76,14 +76,14 @@ class GameViewController: UIViewController {
 
 extension GameViewController : UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return game.cardsCount
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Costants.cellIdentifier, forIndexPath: indexPath) as! CardCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Costants.cellIdentifier, for: indexPath) as! CardCollectionViewCell
         
-        let card = game[indexPath.row]
+        let card = game[(indexPath as NSIndexPath).row]
         cell.setupCard(card.description, backImageName: Costants.cardBackName)
         
         return cell
@@ -94,14 +94,14 @@ extension GameViewController : UICollectionViewDataSource {
 
 extension GameViewController : UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CardCollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell {
             
-            if facedUpCardIndexes.count == 2 || facedUpCardIndexes.contains(indexPath.row) {
+            if facedUpCardIndexes.count == 2 || facedUpCardIndexes.contains((indexPath as NSIndexPath).row) {
                 return
             }
             
-            facedUpCardIndexes.append(indexPath.row)
+            facedUpCardIndexes.append((indexPath as NSIndexPath).row)
             score += 1
             cell.turnCard()
             
@@ -128,7 +128,7 @@ extension GameViewController {
         let viewSize = view.frame.size
         
         let height = (viewSize.height - Costants.topMargin - CGFloat(rows+1)*Costants.padding) / CGFloat(rows)
-        return CGSizeMake(height/Costants.ratio, height)
+        return CGSize(width: height/Costants.ratio, height: height)
     }
     
     private func setup() {
@@ -137,7 +137,7 @@ extension GameViewController {
         pairs = 0
         facedUpCardIndexes = [Int]()
         
-        if let collectionView = collectionView where collectionView.superview != nil {
+        if let collectionView = collectionView {
             collectionView.removeFromSuperview()
         }
         
@@ -167,7 +167,7 @@ extension GameViewController {
     func updateFacedUpCards(alsoRemove removeCards: Bool) {
         dispatchAfer(Costants.animationDuration) {
             for index in self.facedUpCardIndexes {
-                let cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath.init(forRow: index, inSection: 0)) as! CardCollectionViewCell
+                let cell = self.collectionView.cellForItem(at: IndexPath.init(row: index, section: 0)) as! CardCollectionViewCell
                 removeCards ? cell.removeCard() : cell.turnCard()
             }
             self.facedUpCardIndexes.removeAll()
@@ -177,9 +177,9 @@ extension GameViewController {
     func checkFinishedGame() {
         dispatchAfer(Costants.animationDuration) {
             if self.pairs == self.game.pairsCount {
-                let alert = UIAlertController.init(title: "Congratulations!", message: "Your score is \(self.score)", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction.init(title: "OK", style: .Default, handler: { action in self.setup() }))
-                self.presentViewController(alert, animated: true, completion:nil)
+                let alert = UIAlertController.init(title: "Congratulations!", message: "Your score is \(self.score)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { action in self.setup() }))
+                self.present(alert, animated: true, completion:nil)
             }
         }
     }

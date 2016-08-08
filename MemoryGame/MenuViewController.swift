@@ -14,13 +14,13 @@ class MenuViewController: UIViewController {
         static let GameSegueIdenfifier = "showGame"
     }
     
-    @IBAction func startGame(sender: UIButton) {
-        performSegueWithIdentifier(Storyboard.GameSegueIdenfifier, sender: sender)
+    @IBAction func startGame(_ sender: UIButton) {
+        performSegue(withIdentifier: Storyboard.GameSegueIdenfifier, sender: sender)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Storyboard.GameSegueIdenfifier {
-            if let button = sender as? UIButton, vc = segue.destinationViewController as? GameViewController {
+            if let button = sender as? UIButton, let vc = segue.destination as? GameViewController {
                 let difficulty = Difficulty(rawValue: button.currentTitle!) ?? .Normal
                 vc.game = Game(difficulty: difficulty)
             }

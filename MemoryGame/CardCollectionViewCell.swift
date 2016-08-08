@@ -24,19 +24,19 @@ class CardCollectionViewCell: UICollectionViewCell {
         imageView = UIImageView(frame: CGRect(x:0, y:0, width:frame.size.width, height:frame.size.height))
         super.init(frame: frame)
         contentView.addSubview(imageView)
-        contentView.backgroundColor = UIColor.clearColor()
+        contentView.backgroundColor = UIColor.clear
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCard(cardImageName: String, backImageName: String){
+    func setupCard(_ cardImageName: String, backImageName: String){
         self.cardImageName = cardImageName
         self.backImageName = backImageName
         self.alpha = 0
         imageView.image = UIImage(named: self.backImageName)
-        UIView.animateWithDuration(Costants.durationDuration,
+        UIView.animate(withDuration: Costants.durationDuration,
                                    animations: {
                                     self.alpha = 1
             },
@@ -44,9 +44,9 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func turnCard() {
-        UIView.transitionWithView(contentView,
+        UIView.transition(with: contentView,
                                   duration:Costants.durationDuration,
-                                  options:.TransitionFlipFromLeft,
+                                  options:.transitionFlipFromLeft,
                                   animations: {
                                     self.imageView.image = UIImage(named: self.isFacedUp ? self.backImageName : self.cardImageName)
             },
@@ -55,7 +55,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func removeCard() {
-        UIView.animateWithDuration(Costants.durationDuration,
+        UIView.animate(withDuration: Costants.durationDuration,
                                    animations: {
                                     self.alpha = 0
             },

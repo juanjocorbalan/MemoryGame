@@ -13,18 +13,18 @@ enum Difficulty : String {
 }
 
 enum Rank : Int, CustomStringConvertible {
-    case Ace = 1
-    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+    case ace = 1
+    case two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
 
     var description: String {
         switch self {
-        case .Ace:
+        case .ace:
             return "ace"
-        case .Jack:
+        case .jack:
             return "jack"
-        case .Queen:
+        case .queen:
             return "queen"
-        case .King:
+        case .king:
             return "king"
         default:
             return String(self.rawValue)
@@ -93,7 +93,7 @@ extension Game {
     static func fullDeck() -> [Card] {
         var cards = [Card]()
         for suitValue in Suit.allValues() {
-            for rankValue in Rank.Ace.rawValue...Rank.King.rawValue {
+            for rankValue in Rank.ace.rawValue...Rank.king.rawValue {
                 let rank = Rank(rawValue:rankValue)!
                 let suit = Suit(rawValue: suitValue)!
                 let card = Card(rank:rank, suit:suit)

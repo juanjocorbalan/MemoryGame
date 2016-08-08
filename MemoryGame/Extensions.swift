@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-extension CollectionType where Index == Int {
-    func shuffle() -> [Generator.Element] {
+extension Collection where Index == Int {
+    func shuffle() -> [Iterator.Element] {
         var list = Array(self)
         for i in 0..<list.count - 1 {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
@@ -22,7 +22,7 @@ extension CollectionType where Index == Int {
 }
 
 extension UIViewController {
-    func dispatchAfer(delay: Double, block: () -> Void) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), block)
+    func dispatchAfer(_ delay: Double, block: () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: block)
     }
 }
