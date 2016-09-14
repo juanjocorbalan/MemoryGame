@@ -22,7 +22,7 @@ extension Collection where Index == Int {
 }
 
 extension UIViewController {
-    func dispatchAfer(_ delay: Double, block: () -> Void) {
+    func dispatchAfer(_ delay: Double, block: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: block)
     }
 }

@@ -10,13 +10,13 @@ import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
     
-    private struct Costants {
+    fileprivate struct Constants {
         static let durationDuration : Double = 0.5
     }
     
-    private let imageView: UIImageView!
-    private var cardImageName: String!
-    private var backImageName: String!
+    fileprivate let imageView: UIImageView!
+    fileprivate var cardImageName: String!
+    fileprivate var backImageName: String!
     
     var isFacedUp : Bool = false
     
@@ -36,7 +36,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.backImageName = backImageName
         self.alpha = 0
         imageView.image = UIImage(named: self.backImageName)
-        UIView.animate(withDuration: Costants.durationDuration,
+        UIView.animate(withDuration: Constants.durationDuration,
                                    animations: {
                                     self.alpha = 1
             },
@@ -45,7 +45,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func turnCard() {
         UIView.transition(with: contentView,
-                                  duration:Costants.durationDuration,
+                                  duration:Constants.durationDuration,
                                   options:.transitionFlipFromLeft,
                                   animations: {
                                     self.imageView.image = UIImage(named: self.isFacedUp ? self.backImageName : self.cardImageName)
@@ -55,7 +55,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func removeCard() {
-        UIView.animate(withDuration: Costants.durationDuration,
+        UIView.animate(withDuration: Constants.durationDuration,
                                    animations: {
                                     self.alpha = 0
             },

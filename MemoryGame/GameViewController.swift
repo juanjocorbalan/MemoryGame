@@ -10,9 +10,9 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    //MARK: - Costants
+    //MARK: - Constants
     
-    private struct Costants {
+    fileprivate struct Constants {
         static let padding : CGFloat = 5.0
         static let ratio : CGFloat = 1.452
         static let topMargin : CGFloat = 60.0
@@ -28,25 +28,25 @@ class GameViewController: UIViewController {
     
     //MARK: - Properties
     
-    private var collectionView: UICollectionView! {
+    fileprivate var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.isScrollEnabled = false
-            collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: Costants.cellIdentifier)
+            collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
             collectionView.backgroundColor = UIColor.clear
         }
     }
     
-    private var facedUpCardIndexes = [Int]()
+    fileprivate var facedUpCardIndexes = [Int]()
     
-    private var score = 0 {
+    fileprivate var score = 0 {
         didSet {
             self.scoreLabel?.text = String(score)
         }
     }
     
-    private var pairs = 0 {
+    fileprivate var pairs = 0 {
         didSet {
             self.pairsLabel?.text = "\(pairs) of \(game.pairsCount)"
         }
@@ -81,10 +81,10 @@ extension GameViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Costants.cellIdentifier, for: indexPath) as! CardCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! CardCollectionViewCell
         
         let card = game[(indexPath as NSIndexPath).row]
-        cell.setupCard(card.description, backImageName: Costants.cardBackName)
+        cell.setupCard(card.description, backImageName: Constants.cardBackName)
         
         return cell
     }
@@ -123,15 +123,15 @@ extension GameViewController : UICollectionViewDelegate {
 
 extension GameViewController {
     
-    private var cardSize : CGSize {
+    fileprivate var cardSize : CGSize {
         let (rows, _) = game.gameSize()
         let viewSize = view.frame.size
         
-        let height = (viewSize.height - Costants.topMargin - CGFloat(rows+1)*Costants.padding) / CGFloat(rows)
-        return CGSize(width: height/Costants.ratio, height: height)
+        let height = (viewSize.height - Constants.topMargin - CGFloat(rows+1)*Constants.padding) / CGFloat(rows)
+        return CGSize(width: height/Constants.ratio, height: height)
     }
     
-    private func setup() {
+    fileprivate func setup() {
         game.suffle()
         score = 0
         pairs = 0
@@ -142,19 +142,19 @@ extension GameViewController {
         }
         
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = Costants.padding
-        layout.minimumInteritemSpacing = Costants.padding
+        layout.minimumLineSpacing = Constants.padding
+        layout.minimumInteritemSpacing = Constants.padding
         layout.itemSize = cardSize
-        layout.sectionInset = UIEdgeInsets(top: Costants.padding, left: Costants.padding, bottom: Costants.padding, right: Costants.padding)
+        layout.sectionInset = UIEdgeInsets(top: Constants.padding, left: Constants.padding, bottom: Constants.padding, right: Constants.padding)
         
         let (_, cols) = game.gameSize()
-        let cvWidth = CGFloat(cols)*cardSize.width + CGFloat(cols+1)*Costants.padding
+        let cvWidth = CGFloat(cols)*cardSize.width + CGFloat(cols+1)*Constants.padding
         
         collectionView = UICollectionView(frame:
-            CGRect(x: (view.frame.size.width - cvWidth) / 2.0, y: Costants.topMargin, width: cvWidth, height: view.frame.size.height - Costants.topMargin),
+            CGRect(x: (view.frame.size.width - cvWidth) / 2.0, y: Constants.topMargin, width: cvWidth, height: view.frame.size.height - Constants.topMargin),
                                           collectionViewLayout:layout)
         var center = view.center
-        center.y += Costants.topMargin
+        center.y += Constants.topMargin
         
         view.addSubview(collectionView)
     }
@@ -165,7 +165,7 @@ extension GameViewController {
 extension GameViewController {
     
     func updateFacedUpCards(alsoRemove removeCards: Bool) {
-        dispatchAfer(Costants.animationDuration) {
+        dispatchAfer(Constants.animationDuration) {
             for index in self.facedUpCardIndexes {
                 let cell = self.collectionView.cellForItem(at: IndexPath.init(row: index, section: 0)) as! CardCollectionViewCell
                 removeCards ? cell.removeCard() : cell.turnCard()
@@ -175,7 +175,7 @@ extension GameViewController {
     }
     
     func checkFinishedGame() {
-        dispatchAfer(Costants.animationDuration) {
+        dispatchAfer(Constants.animationDuration) {
             if self.pairs == self.game.pairsCount {
                 let alert = UIAlertController.init(title: "Congratulations!", message: "Your score is \(self.score)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { action in self.setup() }))

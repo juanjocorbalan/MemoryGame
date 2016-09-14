@@ -58,7 +58,7 @@ func ==(card1 : Card, card2 : Card) -> Bool {
 
 struct Game {
     
-    private var cards = [Card]()
+    fileprivate var cards = [Card]()
     
     var difficulty : Difficulty = .Normal
     

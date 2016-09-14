@@ -10,7 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    private struct Storyboard {
+    fileprivate struct Storyboard {
         static let GameSegueIdenfifier = "showGame"
     }
     
@@ -18,7 +18,7 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: Storyboard.GameSegueIdenfifier, sender: sender)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Storyboard.GameSegueIdenfifier {
             if let button = sender as? UIButton, let vc = segue.destination as? GameViewController {
                 let difficulty = Difficulty(rawValue: button.currentTitle!) ?? .Normal
